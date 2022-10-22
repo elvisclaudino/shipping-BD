@@ -61,18 +61,19 @@
                 mysqli_query($conn,'SET character_set_results=utf8');
 
                 // Faz Select na Base de Dados
-                $sql = "SELECT ID_Medico, CRM, Nome, Nome_Espec AS Especialidade, Foto, Dt_Nasc FROM Medico AS M INNER JOIN Especialidade AS E ON (M.ID_Espec = E.ID_Espec)";
+                $sql = "SELECT ID_Medico, CRM, Nome, Nome_Espec AS Especialidade, Foto, Dt_Nasc, Email FROM Medico AS M INNER JOIN Especialidade AS E ON (M.ID_Espec = E.ID_Espec)";
                 echo "<div class='w3-responsive w3-card-4'>";
                 if ($result = mysqli_query($conn, $sql)) {
                     echo "<table class='w3-table-all'>";
                     echo "	<tr>";
                     echo "	  <th width='7%'>Código</th>";
-                    echo "	  <th width='14%'>CRM</th>";
+                    echo "	  <th width='10%'>CRM</th>";
                     echo "	  <th width='14%'>Imagem</th>";
-                    echo "	  <th width='18%'>Médico</th>";
+                    echo "	  <th width='14%'>Médico</th>";
                     echo "	  <th width='15%'>Especialidade</th>";
-                    echo "	  <th width='10%'>Nascimento</th>";
+                    echo "	  <th width='8%'>Nascimento</th>";
                     echo "	  <th width='8%'>Idade</th>";
+                    echo "	  <th width='10%'>Email</th>";
                     echo "	  <th width='7%'> </th>";
                     echo "	  <th width='7%'> </th>";
                     echo "	</tr>";
@@ -113,7 +114,10 @@
                             echo $nova_data;
                             echo "</td><td>";
                             echo $idade;
+                            echo "</td><td>";
+                            echo $row["Email"];
                             echo "</td>";
+                            
                             //Atualizar e Excluir registro de médicos
             ?>              <td>       
                             <a href='medAtualizar.php?id=<?php echo $cod; ?>'><img src='imagens/Edit.png' title='Editar Médico' width='32'></a>
