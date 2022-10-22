@@ -9,20 +9,19 @@
 
 <html>
 <head>
-    <title>Clínica Médica ABC</title>
+    <title>GEM Entregas</title>
     <link rel="icon" type="image/png" href="imagens/favicon.png"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="css/customize.css">
 </head>
-<body  onload="w3_show_nav('menuMedico')">
+<body  onload="w3_show_nav('Funcionarios')">
 <!-- Inclui MENU.PHP  -->
 <?php require 'geral/menu.php'; ?>
 <?php require 'bd/conectaBD.php'; ?>
 
 <!-- Conteúdo Principal: deslocado para direita em 270 pixels quando a sidebar é visível -->
 <div class="w3-main w3-container" style="margin-left:270px;margin-top:117px;">
-
     <div class="w3-panel w3-padding-large w3-card-4 w3-light-grey">
         <p class="w3-large">
         <p>
@@ -38,7 +37,7 @@
                 echo "</p> "
             ?>
             <div class="w3-container w3-theme">
-			<h2>Listagem de Medicos</h2>
+			<h2>Listagem de entregas</h2>
 			</div>
 
             <!-- Acesso ao BD-->
@@ -53,7 +52,7 @@
                     echo "</div>";
                     die("Falha na conexão com o Banco de Dados: " . mysqli_connect_error());
                 }
-                
+
                 // Configura para trabalhar com caracteres acentuados do português
                 mysqli_query($conn,"SET NAMES 'utf8'");
                 mysqli_query($conn,'SET character_set_connection=utf8');
@@ -61,68 +60,62 @@
                 mysqli_query($conn,'SET character_set_results=utf8');
 
                 // Faz Select na Base de Dados
-                $sql = "SELECT ID_Medico, CRM, Nome, Nome_Espec AS Especialidade, Foto, Dt_Nasc, Email FROM Medico AS M INNER JOIN Especialidade AS E ON (M.ID_Espec = E.ID_Espec)";
+                $sql = "SELECT 
+                        Entrega_ID, 
+                        Nome,
+                        Sobrenome,
+                        Data_Recebimento, 
+                        Data_Prevista_Entrega, 
+                        Rua,
+                        Numero,
+                        CEP,
+                        Complemento
+                        FROM Entregas
+                        INNER JOIN Funcionarios On Funcionarios.Matricula = Entregas.Fk_Funcionario_ID
+                        INNER JOIN Destinos On Destinos.Destino_ID = Entregas.Fk_Destino_ID
+              ";
                 echo "<div class='w3-responsive w3-card-4'>";
                 if ($result = mysqli_query($conn, $sql)) {
                     echo "<table class='w3-table-all'>";
                     echo "	<tr>";
-                    echo "	  <th width='7%'>Código</th>";
-                    echo "	  <th width='10%'>CRM</th>";
-                    echo "	  <th width='14%'>Imagem</th>";
-                    echo "	  <th width='14%'>Médico</th>";
-                    echo "	  <th width='15%'>Especialidade</th>";
-                    echo "	  <th width='8%'>Nascimento</th>";
-                    echo "	  <th width='8%'>Idade</th>";
-                    echo "	  <th width='10%'>Email</th>";
-                    echo "	  <th width='7%'> </th>";
-                    echo "	  <th width='7%'> </th>";
+                    echo "	  <th width='7%'>Localizador</th>";
+                    echo "	  <th width='15%'>Funcionario</th>";
+                    echo "	  <th width='14%'>Data Recebimento</th>";
+                    echo "	  <th width='14%'>Data de Entrega Prevista</th>";
+                    echo "	  <th width='14%'>Rua</th>";
+                    echo "	  <th width='10%'>Número</th>";
+                    echo "	  <th width='8%'>CEP</th>";
+                    echo "	  <th width='8%'>Complemento</th>";
                     echo "	</tr>";
                     if (mysqli_num_rows($result) > 0) {
                         // Apresenta cada linha da tabela
                         while ($row = mysqli_fetch_assoc($result)) {
-                            $data = $row['Dt_Nasc'];
-                            list($ano, $mes, $dia) = explode('-', $data);
-                            $nova_data = $dia . '/' . $mes . '/' . $ano;
-                            // data atual
-                            $hoje = mktime(0, 0, 0, date('m'), date('d'), date('Y'));
-                            // Descobre a unix timestamp da data de nascimento do fulano
-                            $nascimento = mktime( 0, 0, 0, $mes, $dia, $ano);
-                            // cálculo
-                            $idade = floor((((($hoje - $nascimento) / 60) / 60) / 24) / 365.25);
-                            $cod = $row["ID_Medico"];
+                            $nomeFuncionario = $row['Nome'];
+                            $sobrenomeFuncionario = $row['Sobrenome'];
+                            $nomeCompleto = $nomeFuncionario." ".$sobrenomeFuncionario;
                             echo "<tr>";
                             echo "<td>";
-                            echo $cod;
+                            echo $row['Entrega_ID'];
                             echo "</td><td>";
-                            echo $row["CRM"];
-                            if ($row['Foto']) {?>
-                                <td>
-                                    <img id="imagemSelecionada" class="w3-circle w3-margin-top" src="data:image/png;base64,<?= base64_encode($row['Foto']) ?>" />
-                                </td><td>
-                                <?php
-                            } else {
-                                ?>
-                                <td>
-                                    <img id="imagemSelecionada" class="w3-circle w3-margin-top" src="imagens/pessoa.jpg" />
-                                </td><td>
-                                <?php
-                            }
-                            echo $row["Nome"];
+                            echo $nomeCompleto;
                             echo "</td><td>";
-                            echo $row["Especialidade"];
+                            echo $row['Data_Recebimento'];
                             echo "</td><td>";
-                            echo $nova_data;
+                            echo $row['Data_Prevista_Entrega'];
                             echo "</td><td>";
-                            echo $idade;
-                            echo "</td><td>";
-                            echo $row["Email"];
-                            echo "</td>";
-                            
+                            echo $row['Rua'];
+                            echo "</td><td>";          
+                            echo $row['Numero'];
+                            echo "</td><td>";   
+                            echo $row['CEP'];
+                            echo "</td><td>";   
+                            echo $row['Complemento'];
+                            echo "</td><td>";   
                             //Atualizar e Excluir registro de médicos
             ?>              <td>       
-                            <a href='medAtualizar.php?id=<?php echo $cod; ?>'><img src='imagens/Edit.png' title='Editar Médico' width='32'></a>
+                            <a href='medAtualizar.php?id=<?php echo $cod; ?>'><img src='imagens/Edit.png' title='Visualizar dados e editar da Entrega' width='32'></a>
                             </td><td>
-                            <a href='medExcluir.php?id=<?php echo $cod; ?>'><img src='imagens/Delete.png' title='Excluir Médico' width='32'></a>
+                            <a href='medExcluir.php?id=<?php echo $cod; ?>'><img src='imagens/Delete.png' title='Remover entrega' width='32'></a>
                             </td>
                             </tr>
             <?php

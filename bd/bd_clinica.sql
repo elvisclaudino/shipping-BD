@@ -163,3 +163,18 @@ VALUES
 (8,'2022-9-25','2022-9-26',8,8,8,8),
 (9,'2022-9-29','2022-9-30',9,9,9,9),
 (10,'2022-9-30','2022-10-2',10,10,10,10);
+
+
+SELECT 
+  Entrega_ID, 
+  Nome,
+  Data_Recebimento, 
+  Data_Prevista_Entrega, 
+  Rua,
+  Numero,
+  CEP,
+  Complemento,
+
+FROM Entregas
+INNER JOIN Funcionarios On Funcionarios.Matricula = Entregas.Fk_Funcionario_ID
+INNER JOIN Destinos On Destinos.Destino_ID = Entregas.Fk_Destino_ID

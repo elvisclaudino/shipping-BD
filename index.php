@@ -6,6 +6,6 @@
         $url = substr($url,strrpos($url,"\\/"),strlen($url));  // Retira 2o. '/', se ainda houver esse caracter
         $url = strstr($url, '/',true);
     }
-    $url = "Location: /" . $url . "/medListar.php";	// Monta página para redirecionamento
+    $url = "Location: /" . $url . "/entregasListar.php";	// Monta página para redirecionamento
     header($url);
 ?>
