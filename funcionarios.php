@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="css/customize.css">
 </head>
-<body>
+<body  onload="w3_show_nav('Funcionarios')">
 <!-- Inclui MENU.PHP  -->
 <?php require 'geral/menu.php'; ?>
 <?php require 'bd/conectaBD.php'; ?>
@@ -37,7 +37,7 @@
                 echo "</p> "
             ?>
             <div class="w3-container w3-theme">
-			<h2>Listagem de entregas</h2>
+			<h2>Funcionarios</h2>
 			</div>
 
             <!-- Acesso ao BD-->
@@ -60,62 +60,36 @@
                 mysqli_query($conn,'SET character_set_results=utf8');
 
                 // Faz Select na Base de Dados
-                $sql = "SELECT 
-                        Entrega_ID, 
-                        Nome,
-                        Sobrenome,
-                        Data_Recebimento, 
-                        Data_Prevista_Entrega, 
-                        Rua,
-                        Numero,
-                        CEP,
-                        Complemento
-                        FROM Entregas
-                        INNER JOIN Funcionarios On Funcionarios.Matricula = Entregas.Fk_Funcionario_ID
-                        INNER JOIN Destinos On Destinos.Destino_ID = Entregas.Fk_Destino_ID
+                $sql = "SELECT *
+                        FROM Funcionarios
               ";
                 echo "<div class='w3-responsive w3-card-4'>";
                 if ($result = mysqli_query($conn, $sql)) {
                     echo "<table class='w3-table-all'>";
                     echo "	<tr>";
-                    echo "	  <th width='7%'>Localizador</th>";
-                    echo "	  <th width='15%'>Funcionario</th>";
-                    echo "	  <th width='14%'>Data Recebimento</th>";
-                    echo "	  <th width='14%'>Data de Entrega Prevista</th>";
-                    echo "	  <th width='14%'>Rua</th>";
-                    echo "	  <th width='10%'>Número</th>";
-                    echo "	  <th width='8%'>CEP</th>";
-                    echo "	  <th width='8%'>Complemento</th>";
+                    echo "	  <th width='7%'>Nome</th>";
+                    echo "	  <th width='15%'>Sobrenome</th>";
+                    echo "	  <th width='14%'>Matrícula</th>";
+                    echo "	  <th width='14%'>Cargo</th>";
                     echo "	</tr>";
                     if (mysqli_num_rows($result) > 0) {
                         // Apresenta cada linha da tabela
                         while ($row = mysqli_fetch_assoc($result)) {
-                            $nomeFuncionario = $row['Nome'];
-                            $sobrenomeFuncionario = $row['Sobrenome'];
-                            $nomeCompleto = $nomeFuncionario." ".$sobrenomeFuncionario;
                             echo "<tr>";
                             echo "<td>";
-                            echo $row['Entrega_ID'];
+                            echo $row['Nome'];
                             echo "</td><td>";
-                            echo $nomeCompleto;
+                            echo $row['Sobrenome'];;
                             echo "</td><td>";
-                            echo $row['Data_Recebimento'];
+                            echo $row['Matricula'];
                             echo "</td><td>";
-                            echo $row['Data_Prevista_Entrega'];
-                            echo "</td><td>";
-                            echo $row['Rua'];
-                            echo "</td><td>";          
-                            echo $row['Numero'];
-                            echo "</td><td>";   
-                            echo $row['CEP'];
-                            echo "</td><td>";   
-                            echo $row['Complemento'];
-                            echo "</td><td>";   
+                            echo $row['Cargo'];
+                            echo "</td><td>";  
                             //Atualizar e Excluir registro de médicos
             ?>              <td>       
-                            <a href='medAtualizar.php?id=<?php echo $cod; ?>'><img src='imagens/Edit.png' title='Visualizar dados e editar da Entrega' width='32'></a>
+                            <a href='medAtualizar.php?id=<?php echo $cod; ?>'><img src='imagens/Edit.png' title='Editar Funcionário' width='32'></a>
                             </td><td>
-                            <a href='medExcluir.php?id=<?php echo $cod; ?>'><img src='imagens/Delete.png' title='Remover entrega' width='32'></a>
+                            <a href='medExcluir.php?id=<?php echo $cod; ?>'><img src='imagens/Delete.png' title='Remover Funcionário' width='32'></a>
                             </td>
                             </tr>
             <?php
