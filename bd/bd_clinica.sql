@@ -38,12 +38,20 @@ CREATE TABLE Cargas (
 );
 -- --------------------------------------------------------
 -- Estrutura da tabela Funcionarios
+CREATE TABLE Cargos (
+  Cargo_ID int NOT NULL,
+  Descricao varchar(50) NOT NULL,
+  PRIMARY KEY (Cargo_ID)
+);
+-- --------------------------------------------------------
+-- Estrutura da tabela Funcionarios
 CREATE TABLE Funcionarios (
   Matricula int NOT NULL,
   Nome varchar(50) NOT NULL,
   Sobrenome varchar(50) NOT NULL,
-  Cargo varchar(50) NOT NULL,
-  PRIMARY KEY (Matricula)
+  Fk_Cargo_ID int NOT NULL,
+  PRIMARY KEY (Matricula),
+  FOREIGN KEY (Fk_Cargo_ID) REFERENCES Cargos(Cargo_ID)
 );
 -- --------------------------------------------------------
 -- Estrutura da tabela Transportes
@@ -110,18 +118,24 @@ VALUES
 (9,10.5,1,10.1),
 (10,20.5,2,5.5);
 
-INSERT INTO Funcionarios  (Matricula,Nome,Sobrenome,Cargo)
+
+INSERT INTO Cargos (Cargo_ID,Descricao)
 VALUES
-(1,'Rodrigo','Caio','Almoxerife'),
-(2,'Neymar','Junior','Entregador'),
-(3,'Gabriel','Jesus','Almoxerife'),
-(4,'Antonny','Brasileiro','Entregador'),
-(5,'Adenor','Tite','Almoxerife'),
-(6,'Fabio','Junior','Entregador'),
-(7,'Felipe','Luis','Almoxerife'),
-(8,'Julia','Puzzuoli','Entregador'),
-(9,'Marta','Capita','Almoxerife'),
-(10,'Christiane','Almeida','Entregador');
+(1,'Motorista'),
+(2,'Almoxerife');
+
+INSERT INTO Funcionarios  (Matricula,Nome,Sobrenome,Fk_Cargo_ID)
+VALUES
+(1,'Rodrigo','Caio',1),
+(2,'Neymar','Junior',2),
+(3,'Gabriel','Jesus',1),
+(4,'Antonny','Brasileiro',2),
+(5,'Adenor','Tite',1),
+(6,'Fabio','Junior',2),
+(7,'Felipe','Luis',1),
+(8,'Julia','Puzzuoli',2),
+(9,'Marta','Capita',1),
+(10,'Christiane','Almeida',2);
 
 
 INSERT INTO Transportes  (Transporte_ID,Modelo,Capacidade_Volume,Capacidade_Peso)

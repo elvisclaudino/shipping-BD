@@ -30,16 +30,6 @@
         <!-- h1 class="w3-xxlarge">Contratação de Médico</h1 -->
         <p class="w3-large">
             <div class="w3-code cssHigh notranslate">
-                <!-- Acesso em:-->
-                <?php
-
-                date_default_timezone_set("America/Sao_Paulo");
-                $data = date("d/m/Y H:i:s", time());
-                echo "<p class='w3-small' > ";
-                echo "Acesso em: ";
-                echo $data;
-                echo "</p> "
-                ?>
 				<!-- Acesso ao BD-->
 				<?php
 				
@@ -71,7 +61,7 @@
 
                 <div class="w3-responsive w3-card-4">
                     <div class="w3-container w3-theme">
-                        <h2>Informe os dados do novo do Médico</h2>
+                        <h2>Informe os dados do novo Funcionário</h2>
                     </div>
                     <form class="w3-container" action="medIncluir_exe.php" method="post" enctype="multipart/form-data">
 					<table class='w3-table-all'>
@@ -82,11 +72,11 @@
 						<input class="w3-input w3-border w3-light-grey" name="Nome" type="text" pattern="[a-zA-Z\u00C0-\u00FF ]{10,100}$"
 							   title="Nome entre 10 e 100 letras." required></p>
 						<p>
-						<label class="w3-text-IE"><b>CRM</b>*</label>
+						<label class="w3-text-IE"><b>Sobrenome</b>*</label>
 						<input class="w3-input w3-border w3-light-grey " name="CRM" id="CRM"  type="text" maxlength="15"
 						       placeholder="CRM/UF XXXX-XX" title="CRM/UF XXXX-XX"  pattern="CRM\/([A-Z]{2}) [0-9]{4}-[0-9]{2}$" required></p>
 						<p>
-						<label class="w3-text-IE"><b>Data de Nascimento</b></label>
+						<label class="w3-text-IE"><b>Cargo</b></label>
 						<input class="w3-input w3-border w3-light-grey" name="DataNasc" type="date"
 							   placeholder="dd/mm/aaaa" title="dd/mm/aaaa"</p>
 						<p>

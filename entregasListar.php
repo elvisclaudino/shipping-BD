@@ -26,16 +26,6 @@
         <p class="w3-large">
         <p>
         <div class="w3-code cssHigh notranslate">
-            <!-- Acesso em:-->
-            <?php
-
-                date_default_timezone_set("America/Sao_Paulo");
-                $data = date("d/m/Y H:i:s", time());
-                echo "<p class='w3-small' > ";
-                echo "Acesso em: ";
-                echo $data;
-                echo "</p> "
-            ?>
             <div class="w3-container w3-theme">
 			<h2>Listagem de entregas</h2>
 			</div>

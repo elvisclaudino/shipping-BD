@@ -8,14 +8,6 @@ function w3_close() {
   
 }
 
-function w3_show_nav(name) {
-  document.getElementById("menuMedico").style.display = "none";
-  document.getElementById(name).style.display = "block";
-}
-function w3_show_none() {
-  document.getElementById("menuMedico").style.display = "none";
-}
-
 function validaImagem(input) {
   var caminho = input.value;
 
@@ -56,5 +48,4 @@ function validaImagem(input) {
       document.getElementById('imagemSelecionada').setAttribute('src', '#');
   }
 }
-
 

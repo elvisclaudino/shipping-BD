@@ -23,9 +23,11 @@
 <!-- Conteúdo Principal: deslocado para direita em 270 pixels quando a sidebar é visível -->
 <div class="w3-main w3-container" style="margin-left:270px;margin-top:117px;">
     <div class="w3-panel w3-padding-large w3-card-4 w3-light-grey">
+        <p class="w3-large">
+        <p>
         <div class="w3-code cssHigh notranslate">
             <div class="w3-container w3-theme">
-			<h2>Funcionarios</h2>
+			<h2>Transportes</h2>
 			</div>
 
             <!-- Acesso ao BD-->
@@ -48,36 +50,34 @@
                 mysqli_query($conn,'SET character_set_results=utf8');
 
                 // Faz Select na Base de Dados
-                $sql = "SELECT 
-                            Nome,
-                            Sobrenome,
-                            Matricula,
-                            Descricao
-                        FROM Funcionarios
-                        INNER JOIN Cargos ON Cargos.Cargo_ID = Funcionarios.Fk_Cargo_ID 
+                $sql = "SELECT *
+                        FROM Destinos
               ";
                 echo "<div class='w3-responsive w3-card-4'>";
                 if ($result = mysqli_query($conn, $sql)) {
                     echo "<table class='w3-table-all'>";
                     echo "	<tr>";
-                    echo "	  <th width='7%'>Nome</th>";
-                    echo "	  <th width='15%'>Sobrenome</th>";
-                    echo "	  <th width='14%'>Matrícula</th>";
-                    echo "	  <th width='14%'>Cargo</th>";
+                    echo "	  <th width='7%'>Localizaddor</th>";
+                    echo "	  <th width='15%'>Rua</th>";
+                    echo "	  <th width='14%'>Numero</th>";
+                    echo "	  <th width='14%'>Complemento</th>";
+                    echo "	  <th width='14%'>CEP</th>";
                     echo "	</tr>";
                     if (mysqli_num_rows($result) > 0) {
                         // Apresenta cada linha da tabela
                         while ($row = mysqli_fetch_assoc($result)) {
                             echo "<tr>";
                             echo "<td>";
-                            echo $row['Nome'];
+                            echo $row['Destino_ID'];
                             echo "</td><td>";
-                            echo $row['Sobrenome'];;
+                            echo $row['Rua'];;
                             echo "</td><td>";
-                            echo $row['Matricula'];
+                            echo $row['Numero'];
                             echo "</td><td>";
-                            echo $row['Descricao'];
+                            echo $row['Complemento'];
                             echo "</td><td>";  
+                            echo $row['CEP'];
+                            echo "</td><td>"; 
                             //Atualizar e Excluir registro de médicos
             ?>              <td>       
                             <a href='medAtualizar.php?id=<?php echo $cod; ?>'><img src='imagens/Edit.png' title='Editar Funcionário' width='32'></a>
@@ -100,12 +100,11 @@
         </div>
     </div>
     
-	<!-- Sidebar -->
-	<div class="w3-sidebar w3-bar-block w3-collapse">
-		<div id="menuLateral" class="myMenu">
-			<a class="w3-bar-item w3-button" href="funcionarioIncluir.php">Adicionar funcionário</a>
-		</div>
+	<?php require 'geral/sobre.php';?>
+	<!-- FIM PRINCIPAL -->
 	</div>
+	<!-- Inclui RODAPE.PHP  -->
+	<?php require 'geral/rodape.php';?>
 
 </body>
 </html>
