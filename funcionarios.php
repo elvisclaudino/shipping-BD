@@ -103,7 +103,7 @@
 	<!-- Sidebar -->
 	<div class="w3-sidebar w3-bar-block w3-collapse">
 		<div id="menuLateral" class="myMenu">
-			<a class="w3-bar-item w3-button" href="funcionarioIncluir.php">Adicionar funcionário</a>
+			<a class="w3-bar-item w3-button" href="funcionarioAdicionar.php">Adicionar funcionário</a>
 		</div>
 	</div>
 

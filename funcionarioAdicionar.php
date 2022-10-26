@@ -47,13 +47,13 @@
 				mysqli_query($conn,'SET character_set_results=utf8');
 
 				// Faz Select na Base de Dados
-				$sqlG = "SELECT ID_Espec, Nome_Espec FROM Especialidade";
+				$sqlG = "SELECT Cargo_ID, Descricao FROM Cargos";
 				
 				$optionsEspec = array();
 				
 				if ($result = mysqli_query($conn, $sqlG)) {
 					while ($row = mysqli_fetch_assoc($result)) {
-                       array_push($optionsEspec, "\t\t\t<option value='". $row["ID_Espec"]."'>".$row["Nome_Espec"]."</option>\n");
+                       array_push($optionsEspec, "\t\t\t<option value='". $row["Cargo_ID"]."'>".$row["Descricao"]."</option>\n");
 					}
 				}
 
@@ -74,14 +74,10 @@
 						<p>
 						<label class="w3-text-IE"><b>Sobrenome</b>*</label>
 						<input class="w3-input w3-border w3-light-grey " name="CRM" id="CRM"  type="text" maxlength="15"
-						       placeholder="CRM/UF XXXX-XX" title="CRM/UF XXXX-XX"  pattern="CRM\/([A-Z]{2}) [0-9]{4}-[0-9]{2}$" required></p>
+						       placeholder="" title=""  pattern="" required></p>
 						<p>
-						<label class="w3-text-IE"><b>Cargo</b></label>
-						<input class="w3-input w3-border w3-light-grey" name="DataNasc" type="date"
-							   placeholder="dd/mm/aaaa" title="dd/mm/aaaa"</p>
-						<p>
-						<p><label class="w3-text-IE"><b>Especialidade</b>*</label>
-								<select name="Especialidade" id="Especialidade" class="w3-input w3-border w3-light-grey" required>
+						<p><label class="w3-text-IE"><b>Cargo</b>*</label>
+								<select name="Cargo" id="Cargo" class="w3-input w3-border w3-light-grey" required>
 									<option value=""></option>
 								<?php
 									foreach($optionsEspec as $key => $value){
@@ -89,16 +85,6 @@
 									}
 								?>
 								</select>
-						</p>
-
-						
-						</td>
-						<td>
-						<p style="text-align:center"><label class="w3-text-IE"><b>Minha Imagem para Identificação: </b></label></p>
-						<p style="text-align:center"><img id="imagemSelecionada" src="imagens/pessoa.jpg"    /></p>
-						<p style="text-align:center"><label class="w3-btn w3-theme">Selecione uma Imagem 
-							<input type="hidden" name="MAX_FILE_SIZE" value="16777215" />
-							<input type="file" id="Imagem" name="Imagem" accept="imagem/*" onchange="validaImagem(this);"></label>
 						</p>
 						</td>
 					</tr>
