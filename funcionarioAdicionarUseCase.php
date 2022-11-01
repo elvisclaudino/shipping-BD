@@ -9,7 +9,6 @@
 
 <html>
 	<head>
-
 	  <title>Clínica Médica ABC</title>
 	  <link rel="icon" type="image/png" href="imagens/favicon.png" />
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
