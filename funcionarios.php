@@ -99,13 +99,6 @@
             ?>
         </div>
     </div>
-    
-	<!-- Sidebar -->
-	<div class="w3-center w3-monospace w3-bar-block w3-collapse">
-		<div id="menuLateral">
-			<a class="w3-yellow w3-medium w3-round-large w3-button w3-hover-white" href="funcionarioAdd.php">Adicionar funcionário</a>
-		</div>
-	</div>
 
     <?php require 'geral/sobre.php';?>
 	<!-- FIM PRINCIPAL -->
