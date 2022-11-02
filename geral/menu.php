@@ -16,28 +16,19 @@
 
 	</div>
 
-	<div class="w3-sidebar w3-bar-block w3-border-right w3-yellow w3-border-right w3-border-black" style="z-index:3;width:200px;display:none" id="mySidebar">
+	<div class="w3-sidebar w3-bar-block w3-border-right w3-yellow w3-border-right w3-border-black" style="z-index:3;width:250px;display:none" id="mySidebar">
 		<button onclick="w3_close()" class="w3-bar-item w3-large w3-black w3-monospace">Fechar &times;</button>
 		<a class="w3-bar-item w3-button w3-hover-black w3-monospace" href="entregasListar.php">Ínicio</a>
 		<a class="w3-bar-item w3-button w3-hover-black w3-monospace" href="funcionarios.php">Funcionários</a>
 		<a class="w3-bar-item w3-button w3-hover-black w3-monospace" href="cargas.php">Cargas</a>
 		<a class="w3-bar-item w3-button w3-hover-black w3-monospace" href="transportes.php">Transportes</a>
 		<a class="w3-bar-item w3-button w3-hover-black w3-monospace" href="destinos.php">Destinos</a>
+		<a class="w3-bar-item w3-button w3-hover-black w3-monospace" href="funcionarioAdd.php">Adicionar Funcionários</a>
 	</div>
 
 	<div class="w3-teal w3-yellow">
 		<button class="w3-button w3-teal w3-large w3-yellow w3-hover-black" onclick="w3_open()">☰</button>
 	</div>
-
-	<!-- Sidebar -->
-	<!-- <div class="w3-sidebar w3-bar-block w3-collapse w3-yellow " style="z-index:3;width:200px" id="mySidebar" >
-		<button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
-		<a class="w3-bar-item w3-button w3-hover-black w3-monospace" href="entregasListar.php">Home</a>
-		<a class="w3-bar-item w3-button w3-hover-black w3-monospace" href="funcionarios.php">Funcionários</a>
-		<a class="w3-bar-item w3-button w3-hover-black w3-monospace" href="cargas.php">Cargas</a>
-		<a class="w3-bar-item w3-button w3-hover-black w3-monospace" href="transportes.php">Transportes</a>
-		<a class="w3-bar-item w3-button w3-hover-black w3-monospace" href="destinos.php">Destinos</a>
-	</div> -->
 
 <script>
 function w3_open() {

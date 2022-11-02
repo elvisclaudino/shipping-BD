@@ -22,7 +22,7 @@
 
 <!-- Conteúdo Principal: deslocado para direita em 270 pixels quando a sidebar é visível -->
 <div class="w3-main w3-container" style="margin-top:5px;">
-    <div class="w3-panel w3-padding-large w3-card-4 w3-light-grey">
+    <div class="w3-panel w3-padding-large w3-card-4 w3-light-gray">
         <div class="w3-code cssHigh notranslate">
             <div class="w3-container w3-theme">
 			<h2>Funcionarios</h2>
@@ -100,10 +100,16 @@
     </div>
     
 	<!-- Sidebar -->
-	<div class="w3-sidebar w3-bar-block w3-collapse">
-		<div id="menuLateral" class="myMenu">
-			<a class="w3-bar-item w3-button" href="funcionarioAdd.php">Adicionar funcionário</a>
+	<div class="w3-center w3-monospace w3-bar-block w3-collapse">
+		<div id="menuLateral">
+			<a class="w3-yellow w3-medium w3-round-large w3-button w3-hover-white" href="funcionarioAdd.php">Adicionar funcionário</a>
 		</div>
 	</div>
+
+    <?php require 'geral/sobre.php';?>
+	<!-- FIM PRINCIPAL -->
+	</div>
+	<!-- Inclui RODAPE.PHP  -->
+	<?php require 'geral/rodape.php';?>
 
 </body>
