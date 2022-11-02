@@ -78,11 +78,11 @@
                             echo "</td><td>";
                             echo $row['Descricao'];
                             echo "</td><td>";  
-                            //Atualizar e Excluir registro de médicos
+                            //Atualizar e Excluir registro de funcionarios
             ?>              <td>       
-                            <a href='medAtualizar.php?id=<?php echo $cod; ?>'><img src='imagens/Edit.png' title='Editar Funcionário' width='32'></a>
+                            <a href='funcionarioRem.php?id=<?php echo $cod; ?>'><img src='imagens/Edit.png' title='Editar Funcionário' width='32'></a>
                             </td><td>
-                            <a href='medExcluir.php?id=<?php echo $cod; ?>'><img src='imagens/Delete.png' title='Remover Funcionário' width='32'></a>
+                            <a href='funcionarioRem.php?id=<?php echo $cod; ?>'><img src='imagens/Delete.png' title='Remover Funcionário' width='32'></a>
                             </td>
                             </tr>
             <?php
@@ -103,7 +103,7 @@
 	<!-- Sidebar -->
 	<div class="w3-sidebar w3-bar-block w3-collapse">
 		<div id="menuLateral" class="myMenu">
-			<a class="w3-bar-item w3-button" href="funcionarioAdicionar.php">Adicionar funcionário</a>
+			<a class="w3-bar-item w3-button" href="funcionarioAdd.php">Adicionar funcionário</a>
 		</div>
 	</div>
 

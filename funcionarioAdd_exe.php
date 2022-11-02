@@ -9,7 +9,6 @@
 
 <html>
 	<head>
-
 	  <title>Clínica Médica ABC</title>
 	  <link rel="icon" type="image/png" href="imagens/favicon.png" />
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,25 +25,13 @@
 <div class="w3-panel w3-padding-large w3-card-4 w3-light-grey">
   <p class="w3-large">
   <div class="w3-code cssHigh notranslate">
-  <!-- Acesso em:-->
-	<?php
-
-	date_default_timezone_set("America/Sao_Paulo");
-	$data = date("d/m/Y H:i:s",time());
-	echo "<p class='w3-small' > ";
-	echo "Acesso em: ";
-	echo $data;
-	echo "</p> "
-	?>
 
 	<!-- Acesso ao BD-->
 	<?php
 		$nome    = $_POST['Nome'];	
-		$sobrenome = $_POST['Sobrenome'];
-		$cargo  = $_POST['Cargo'];
+		$sobrenome     = $_POST['Sobrenome'];
+		$cargo   = $_POST['Cargo'];
 		
-		
-		 
 		// Cria conexão
 		$conn = mysqli_connect($servername, $username, $password, $database);
 
@@ -58,14 +45,33 @@
 		mysqli_query($conn,'SET character_set_client=utf8');
 		mysqli_query($conn,'SET character_set_results=utf8');
 
-		$sqlId = ""
+		// Faz Select na Base de Dados para determinar o ID para o cargo
+		$sqlG = "SELECT Cargo_ID FROM Cargos";
+						
+		$optionsCargo = array();
+				
+		if ($result = mysqli_query($conn, $sqlG)) {
+			while ($row = mysqli_fetch_assoc($result)) {
+			   array_push($optionsCargo, $row["Cargo_ID"]);
+			}
+		}
 
-		// Faz Select na Base de Dados
-		$sql = "INSERT INTO Funcionarios (Matricula, Nome, Sobrenome, Cargo) VALUES ('$nome','$Sobrenome','$dtNasc', '$espec', NULL)";
+		// Faz Select na Base de Dados para calculo de um novo ID
+		$sqlH = "SELECT MAX(Matricula) from Funcionarios";
+			
+		if ($result = mysqli_query($conn, $sqlH)) {
+			while ($row = mysqli_fetch_assoc($result)) {
+				$optionsId = $row["MAX(Matricula)"]+1;
+			}
+		}
 
+		// Faz Insert na base de dados
+		$sql = "INSERT INTO Funcionarios (Matricula, Nome, Sobrenome, Fk_Cargo_ID) VALUES ('$optionsId','$nome','$sobrenome','$optionsCargo[0]')";
+
+		?>
 		<div class='w3-responsive w3-card-4'>
 		<div class="w3-container w3-theme">
-		<h2>Inclusão de Novo Médico</h2>
+		<h2>Inclusão de Novo Funcionario</h2>
 		</div>
 		<?php
 		if ($result = mysqli_query($conn, $sql)) {
@@ -75,12 +81,9 @@
 		}
         echo "</div>";
 		mysqli_close($conn);  //Encerra conexao com o BD
-
 	?>
   </div>
 </div>
-
-
 	<?php require 'geral/sobre.php';?>
 	<!-- FIM PRINCIPAL -->
 	</div>

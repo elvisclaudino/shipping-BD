@@ -30,6 +30,16 @@
         <!-- h1 class="w3-xxlarge">Contratação de Médico</h1 -->
         <p class="w3-large">
             <div class="w3-code cssHigh notranslate">
+                <!-- Acesso em:-->
+                <?php
+
+                date_default_timezone_set("America/Sao_Paulo");
+                $data = date("d/m/Y H:i:s", time());
+                echo "<p class='w3-small' > ";
+                echo "Acesso em: ";
+                echo $data;
+                echo "</p> "
+                ?>
 				<!-- Acesso ao BD-->
 				<?php
 				
@@ -49,11 +59,11 @@
 				// Faz Select na Base de Dados
 				$sqlG = "SELECT Cargo_ID, Descricao FROM Cargos";
 				
-				$optionsEspec = array();
+				$optionsCargo = array();
 				
 				if ($result = mysqli_query($conn, $sqlG)) {
 					while ($row = mysqli_fetch_assoc($result)) {
-                       array_push($optionsEspec, "\t\t\t<option value='". $row["Cargo_ID"]."'>".$row["Descricao"]."</option>\n");
+                       array_push($optionsCargo, "\t\t\t<option value='". $row["Cargo_ID"]."'>".$row["Descricao"]."</option>\n");
 					}
 				}
 
@@ -61,26 +71,26 @@
 
                 <div class="w3-responsive w3-card-4">
                     <div class="w3-container w3-theme">
-                        <h2>Informe os dados do novo Funcionário</h2>
+                        <h2>Informe os dados do novo do Funcionario</h2>
                     </div>
-                    <form class="w3-container" action="medIncluir_exe.php" method="post" enctype="multipart/form-data">
+                    <form class="w3-container" action="funcionarioAdd_exe.php" method="post" enctype="multipart/form-data">
 					<table class='w3-table-all'>
 					<tr>
                         <td style="width:50%;">
 						<p>
 						<label class="w3-text-IE"><b>Nome</b>*</label>
-						<input class="w3-input w3-border w3-light-grey" name="Nome" type="text" pattern="[a-zA-Z\u00C0-\u00FF ]{10,100}$"
-							   title="Nome entre 10 e 100 letras." required></p>
+						<input class="w3-input w3-border w3-light-grey"  name="Nome" type="text" placeholder="Elvis" required></p>
 						<p>
 						<label class="w3-text-IE"><b>Sobrenome</b>*</label>
-						<input class="w3-input w3-border w3-light-grey " name="CRM" id="CRM"  type="text" maxlength="15"
-						       placeholder="" title=""  pattern="" required></p>
+						<input class="w3-input w3-border w3-light-grey " name="Sobrenome"  type="text" maxlength="15"
+						       placeholder="Claudino" required></p>
+
 						<p>
 						<p><label class="w3-text-IE"><b>Cargo</b>*</label>
-								<select name="Cargo" id="Cargo" class="w3-input w3-border w3-light-grey" required>
+								<select name="Cargo" id="Cargo"  class="w3-input w3-border w3-light-grey" required>
 									<option value=""></option>
 								<?php
-									foreach($optionsEspec as $key => $value){
+									foreach($optionsCargo as $key => $value){
 										echo $value;
 									}
 								?>
