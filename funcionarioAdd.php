@@ -82,8 +82,7 @@
 						<input class="w3-input w3-border w3-light-grey"  name="Nome" type="text" placeholder="Elvis" required></p>
 						<p>
 						<label class="w3-text-IE"><b>Sobrenome</b>*</label>
-						<input class="w3-input w3-border w3-light-grey " name="Sobrenome"  type="text" maxlength="15"
-						       placeholder="Claudino" required></p>
+						<input class="w3-input w3-border w3-light-grey " name="Sobrenome"  type="text" maxlength="15"placeholder="Claudino" required></p>
 
 						<p>
 						<p><label class="w3-text-IE"><b>Cargo</b>*</label>

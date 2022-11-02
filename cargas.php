@@ -51,8 +51,7 @@
                 // Faz Select na Base de Dados
                 $sql = "SELECT Carga_ID, Peso, Volume, Descricao
                         FROM Cargas
-                        INNER JOIN Tipo_Carga ON Tipo_Carga.Tipo_Carga_ID = Cargas.Fk_Tipo_ID
-              ";
+                        INNER JOIN Tipo_Carga ON Tipo_Carga.Tipo_Carga_ID = Cargas.Fk_Tipo_ID";
                 echo "<div class='w3-responsive w3-card-4'>";
                 if ($result = mysqli_query($conn, $sql)) {
                     echo "<table class='w3-table-all'>";
