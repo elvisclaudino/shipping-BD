@@ -54,7 +54,8 @@
                             Matricula,
                             Descricao
                         FROM Funcionarios
-                        INNER JOIN Cargos ON Cargos.Cargo_ID = Funcionarios.Fk_Cargo_ID";
+                        INNER JOIN Cargos ON Cargos.Cargo_ID = Funcionarios.Fk_Cargo_ID 
+                        ORDER BY Nome";
                 echo "<div class='w3-responsive w3-card-4'>";
                 if ($result = mysqli_query($conn, $sql)) {
                     echo "<table class='w3-table-all'>";
@@ -79,9 +80,9 @@
                             echo "</td><td>";  
                             //Atualizar e Excluir registro de médicos
             ?>              <td>       
-                            <a href='medAtualizar.php?id=<?php echo $cod; ?>'><img src='imagens/Edit.png' title='Editar Funcionário' width='32'></a>
+                            <a href='medAtualizar.php?id=<?php echo $row['Matricula']; ?>'><img src='imagens/Edit.png' title='Editar Funcionário' width='32'></a>
                             </td><td>
-                            <a href='medExcluir.php?id=<?php echo $cod; ?>'><img src='imagens/Delete.png' title='Remover Funcionário' width='32'></a>
+                            <a href='funcionarioRem.php?id=<?php echo $row['Matricula']; ?>'><img src='imagens/Delete.png' title='Remover Funcionário' width='32'></a>
                             </td>
                             </tr>
             <?php
