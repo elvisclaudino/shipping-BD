@@ -1,25 +1,29 @@
 .w3-theme {
-    color: #ffff !important;
-    background-color: #5D6D7E !important
+  color: rgb(0, 0, 0) !important;
+  background-color: #fceb3b !important;
 }
 
 .w3-code {
-    border-left: 4px solid #9FC2E8
+  border-left: 4px solid #000000;
 }
 
 .w3-text-IE {
-    color:#384655!important
+  color: #000000 !important;
 }
 
 .myMenu {
-    margin-bottom: 150px
+  margin-bottom: 150px;
 }
 
 #Imagem {
-    display: none
+  display: none;
 }
 
 #imagemSelecionada {
-    width: 20%;
-    height: auto;
+  width: 20%;
+  height: auto;
+}
+
+.background {
+  background-color: #0e0e0e;
 }
