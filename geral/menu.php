@@ -50,5 +50,3 @@ function w3_close() {
 </script>
 
 	<script type="text/javascript" src="js/myScriptClinic.js"></script>
-
-	

@@ -54,8 +54,7 @@
                             Matricula,
                             Descricao
                         FROM Funcionarios
-                        INNER JOIN Cargos ON Cargos.Cargo_ID = Funcionarios.Fk_Cargo_ID 
-              ";
+                        INNER JOIN Cargos ON Cargos.Cargo_ID = Funcionarios.Fk_Cargo_ID";
                 echo "<div class='w3-responsive w3-card-4'>";
                 if ($result = mysqli_query($conn, $sql)) {
                     echo "<table class='w3-table-all'>";
@@ -108,4 +107,3 @@
 	</div>
 
 </body>
-</html>
