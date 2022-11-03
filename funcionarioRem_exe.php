@@ -26,7 +26,7 @@
 <div>
   <div class="w3-code cssHigh notranslate w3-green w3-round-large w3-center">
 	<div>
-	<h2>Exclusão de Funcionario</h2>
+	<h2>Exclusão de Funcionário</h2>
 	</div>
 
 	<!-- Acesso ao BD-->
@@ -56,7 +56,14 @@
 		mysqli_close($conn);  //Encerra conexao com o BD
 
 		?>
-  	</div>
+  </div>
 	</div>
+	<footer class="w3-center">
+		<p>
+			<nav>
+				<a class="w3-button w3-round-large w3-medium w3-yellow w3-hover-white w3-monospace" href="funcionarios.php">Ir para Funcionários</a>
+			</nav>
+		</p>
+	</footer>
 </body>
 </html>

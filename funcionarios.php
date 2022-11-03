@@ -25,7 +25,7 @@
     <div>
         <div class="w3-code cssHigh notranslate w3-yellow w3-round-large">
             <div class="w3-container w3-theme">
-			<h2>Funcionarios</h2>
+			<h2>Funcionários</h2>
 			</div>
 
             <!-- Acesso ao BD-->

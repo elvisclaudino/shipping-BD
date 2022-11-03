@@ -58,7 +58,7 @@
 				?>
 
 				<div>
-					<h2>Informe os dados do novo do Funcionario</h2>
+					<h2>Informe os dados do novo funcionário</h2>
 				</div>
 				<form action="funcionarioAdd_exe.php" method="post" enctype="multipart/form-data">
 					<table class='w3-table-all'>

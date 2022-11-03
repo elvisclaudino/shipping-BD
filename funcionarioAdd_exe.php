@@ -69,7 +69,7 @@
 		?>
 		<div class="w3-center">
 		<div>
-		<h2>Inclusão de Novo Funcionario</h2>
+		<h2>Inclusão de novo funcionário</h2>
 		</div>
 		<?php
 		echo "<div>";
@@ -83,5 +83,12 @@
 	?>
   </div>
 </div>
+<footer class="w3-center">
+	<p>
+		<nav>
+			<a class="w3-button w3-round-large w3-medium w3-yellow w3-hover-white w3-monospace" href="funcionarios.php">Ir para Funcionários</a>
+		</nav>
+	</p>
+</footer>
 </body>
 </html>
