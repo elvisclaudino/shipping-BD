@@ -26,20 +26,10 @@
 <!-- Conteúdo Principal: deslocado paa direita em 270 pixels quando a sidebar é visível -->
 <div class="w3-main w3-container" style="margin-top:5px;">
 
-    <div class="w3-panel w3-padding-large w3-card-4 w3-light-grey">
+    <div class="w3-panel w3-padding-large w3-card-4 w3-pale-yellow">
         <!-- h1 class="w3-xxlarge">Contratação de Médico</h1 -->
         <p class="w3-large">
-            <div class="w3-code cssHigh notranslate">
-                <!-- Acesso em:-->
-                <?php
-
-                date_default_timezone_set("America/Sao_Paulo");
-                $data = date("d/m/Y H:i:s", time());
-                echo "<p class='w3-small' > ";
-                echo "Acesso em: ";
-                echo $data;
-                echo "</p> "
-                ?>
+            <div class="w3-code cssHigh notranslate w3-yellow">
 				<!-- Acesso ao BD-->
 				<?php
 				
@@ -63,20 +53,19 @@
 				
 				if ($result = mysqli_query($conn, $sqlG)) {
 					while ($row = mysqli_fetch_assoc($result)) {
-                       array_push($optionsCargo, "\t\t\t<option value='". $row["Cargo_ID"]."'>".$row["Descricao"]."</option>\n");
+						array_push($optionsCargo, "\t\t\t<option value='". $row["Cargo_ID"]."'>".$row["Descricao"]."</option>\n");
 					}
 				}
 
 				?>
 
-                <div class="w3-responsive w3-card-4">
-                    <div class="w3-container w3-theme">
-                        <h2>Informe os dados do novo do Funcionario</h2>
-                    </div>
-                    <form class="w3-container" action="funcionarioAdd_exe.php" method="post" enctype="multipart/form-data">
+				<div class="w3-theme">
+						<h2>Informe os dados do novo do Funcionario</h2>
+				</div>
+				<form action="funcionarioAdd_exe.php" method="post" enctype="multipart/form-data">
 					<table class='w3-table-all'>
 					<tr>
-                        <td style="width:50%;">
+            <td class="w3-sand" style="width:50%;">
 						<p>
 						<label class="w3-text-IE"><b>Nome</b>*</label>
 						<input class="w3-input w3-border w3-light-grey"  name="Nome" type="text" placeholder="Elvis" required></p>
@@ -97,11 +86,11 @@
 						</p>
 						</td>
 					</tr>
-					<tr>
+					<tr class="w3-black">
 						<td colspan="2" style="text-align:center">
 						<p>
-						<input type="submit" value="Salvar" class="w3-btn w3-theme" >
-						<input type="button" value="Cancelar" class="w3-btn w3-theme" onclick="window.location.href='medListar.php'">
+						<input type="submit" value="Salvar" class="w3-button w3-round-large w3-medium w3-yellow w3-hover-white w3-monospace" >
+						<input type="button" value="Cancelar" class="w3-button w3-round-large w3-medium w3-yellow w3-hover-white w3-monospace" onclick="window.location.href='medListar.php'">
 						</p>
 						</td>
 					</tr>

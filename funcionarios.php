@@ -22,8 +22,8 @@
 
 <!-- Conteúdo Principal: deslocado para direita em 270 pixels quando a sidebar é visível -->
 <div class="w3-main w3-container" style="margin-top:5px;">
-    <div class="w3-panel w3-padding-large w3-card-4 w3-light-gray">
-        <div class="w3-code cssHigh notranslate">
+    <div class="w3-panel w3-padding-large w3-card-4 w3-pale-yellow">
+        <div class="w3-code cssHigh notranslate w3-yellow">
             <div class="w3-container w3-theme">
 			<h2>Funcionarios</h2>
 			</div>
@@ -58,17 +58,17 @@
                         ORDER BY Nome";
                 echo "<div class='w3-responsive w3-card-4'>";
                 if ($result = mysqli_query($conn, $sql)) {
-                    echo "<table class='w3-table-all'>";
-                    echo "	<tr>";
-                    echo "	  <th width='7%'>Nome</th>";
-                    echo "	  <th width='15%'>Sobrenome</th>";
-                    echo "	  <th width='14%'>Matrícula</th>";
-                    echo "	  <th width='14%'>Cargo</th>";
+                    echo "<table class='w3-table-all w3-black'>";
+                    echo "	<tr class='w3-black'>";
+                    echo "	  <th width='25%'>Nome</th>";
+                    echo "	  <th width='25%'>Sobrenome</th>";
+                    echo "	  <th width='25%'>Matrícula</th>";
+                    echo "	  <th width='25%'>Cargo</th>";
                     echo "	</tr>";
                     if (mysqli_num_rows($result) > 0) {
                         // Apresenta cada linha da tabela
                         while ($row = mysqli_fetch_assoc($result)) {
-                            echo "<tr>";
+                            echo "<tr class='w3-sand'>";
                             echo "<td>";
                             echo $row['Nome'];
                             echo "</td><td>";

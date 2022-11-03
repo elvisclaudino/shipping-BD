@@ -9,8 +9,7 @@
 
 <html>
 	<head>
-
-	  <title>Clínica Médica ABC</title>
+	  <title>SHIPPING</title>
 	  <link rel="icon" type="image/png" href="imagens/favicon.png" />
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
 	  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -24,9 +23,9 @@
 <!-- Conteúdo Principal: deslocado para direita em 270 pixels quando a sidebar é visível -->
 <div class="w3-main w3-container" style="margin-left:270px;margin-top:117px;">
 
-<div class="w3-panel w3-padding-large w3-card-4 w3-light-grey">
+<div class="w3-panel w3-padding-large w3-card-4 w3-pale-yellow">
   <p class="w3-large">
-  <div class="w3-code cssHigh notranslate">
+  <div class="w3-code cssHigh notranslate w3-yellow">
   <!-- Acesso em:-->
 	<?php
 

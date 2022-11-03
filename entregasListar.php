@@ -22,10 +22,10 @@
 
 <!-- Conteúdo Principal: deslocado para direita em 270 pixels quando a sidebar é visível -->
 <div class="w3-main w3-container" style="margin-top:5px;"">
-    <div class="w3-panel w3-padding-large w3-card-4 w3-light-grey">
+    <div class="w3-panel w3-padding-large w3-card-4 w3-pale-yellow">
         <p class="w3-large">
         <p>
-        <div class="w3-code cssHigh notranslate">
+        <div  class="w3-code cssHigh notranslate w3-yellow">
             <div class="w3-container w3-theme">
 			<h2>Listagem de entregas</h2>
 			</div>
@@ -62,16 +62,15 @@
                         Complemento
                         FROM Entregas
                         INNER JOIN Funcionarios On Funcionarios.Matricula = Entregas.Fk_Funcionario_ID
-                        INNER JOIN Destinos On Destinos.Destino_ID = Entregas.Fk_Destino_ID
-              ";
+                        INNER JOIN Destinos On Destinos.Destino_ID = Entregas.Fk_Destino_ID";
                 echo "<div class='w3-responsive w3-card-4'>";
                 if ($result = mysqli_query($conn, $sql)) {
-                    echo "<table class='w3-table-all'>";
-                    echo "	<tr>";
-                    echo "	  <th width='7%'>Localizador</th>";
-                    echo "	  <th width='15%'>Funcionario</th>";
-                    echo "	  <th width='14%'>Data Recebimento</th>";
-                    echo "	  <th width='14%'>Data de Entrega Prevista</th>";
+                    echo "<table class='w3-table-all w3-black'>";
+                    echo "	<tr class='w3-black'>";
+                    echo "	  <th width='10%'>Localizador</th>";
+                    echo "	  <th width='10%'>Funcionario</th>";
+                    echo "	  <th width='12%'>Data Recebimento</th>";
+                    echo "	  <th width='16%'>Data de Entrega Prevista</th>";
                     echo "	  <th width='14%'>Rua</th>";
                     echo "	  <th width='10%'>Número</th>";
                     echo "	  <th width='8%'>CEP</th>";
@@ -83,7 +82,7 @@
                             $nomeFuncionario = $row['Nome'];
                             $sobrenomeFuncionario = $row['Sobrenome'];
                             $nomeCompleto = $nomeFuncionario." ".$sobrenomeFuncionario;
-                            echo "<tr>";
+                            echo "<tr class='w3-sand'>";
                             echo "<td>";
                             echo $row['Entrega_ID'];
                             echo "</td><td>";

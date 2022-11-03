@@ -22,9 +22,9 @@
 <!-- Conteúdo Principal: deslocado para direita em 270 pixels quando a sidebar é visível -->
 <div class="w3-main w3-container" style="margin-top:5px;">
 
-<div class="w3-panel w3-padding-large w3-card-4 w3-light-grey">
+<div class="w3-panel w3-padding-large w3-card-4 w3-pale-yellow">
   <p class="w3-large">
-  <div class="w3-code cssHigh notranslate">
+  <div class="w3-code cssHigh notranslate w3-yellow">
 
 	<!-- Acesso ao BD-->
 	<?php
@@ -74,6 +74,7 @@
 		<h2>Inclusão de Novo Funcionario</h2>
 		</div>
 		<?php
+		echo "<div class='w3-responsive w3-card-4'>";
 		if ($result = mysqli_query($conn, $sql)) {
 			echo "<p>&nbsp;Registro cadastrado com sucesso! </p>";
 		} else {
@@ -84,11 +85,5 @@
 	?>
   </div>
 </div>
-	<?php require 'geral/sobre.php';?>
-	<!-- FIM PRINCIPAL -->
-	</div>
-	<!-- Inclui RODAPE.PHP  -->
-	<?php require 'geral/rodape.php';?>
-	
 </body>
 </html>

@@ -10,7 +10,7 @@
 <html>
 <head>
 
-    <title>Clínica Médica ABC</title>
+    <title>SHIPPING</title>
     <link rel="icon" type="image/png" href="imagens/favicon.png"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -23,11 +23,11 @@
 <?php require 'bd/conectaBD.php'; ?>
 
 <!-- Conteúdo Principal: deslocado para direita em 270 pixels quando a sidebar é visível -->
-<div class="w3-main w3-container" style="margin-left:270px;margin-top:117px;">
+<div class="w3-main w3-container">
 
-    <div class="w3-panel w3-padding-large w3-card-4 w3-light-grey">
+    <div class="w3-panel w3-padding-large w3-card-4 w3-pale-yellow">
         <p class="w3-large">
-            <div class="w3-code cssHigh notranslate">
+            <div class="w3-code cssHigh notranslate w3-yellow">
 
                 <!-- Acesso ao BD-->
 				<?php
@@ -53,12 +53,10 @@
 
 				//Inicio DIV form
 				echo "<div class='w3-responsive w3-card-4'>";  
-                
-				 if ($result = mysqli_query($conn, $sql)) {
+          if ($result = mysqli_query($conn, $sql)) {
 					if (mysqli_num_rows($result) == 1) {
 						$row = mysqli_fetch_assoc($result);
-
-			    ?>
+					?>
                 <div class="w3-container w3-theme">
                     <h2>Exclusão do Funcionario Cód. = [<?php echo $row['Matricula']; ?>]</h2>
                 </div>
@@ -71,8 +69,8 @@
                     <p>
                     <label class="w3-text-IE"><b>Cargo: </b> <?php echo $row['Descricao']; ?> </label></p>
                     <p>
-                    <input type="submit" value="Confirma exclusão?" class="w3-btn w3-red" >
-                    <input type="button" value="Cancelar" class="w3-btn w3-theme" onclick="window.location.href='funcionarios.php'"></p>
+                    <input type="submit" value="Confirma exclusão?" class="w3-button w3-round-large w3-medium w3-red w3-hover-white w3-monospace" >
+                    <input type="button" value="Cancelar" class="w3-button w3-round-large w3-medium w3-black w3-hover-white w3-monospace" onclick="window.location.href='funcionarios.php'"></p>
                 </form>
 			<?php 
 					}else{?>
@@ -92,12 +90,5 @@
 			</div>
 		</p>
 	</div>
-	
-	<?php require 'geral/sobre.php';?>
-	<!-- FIM PRINCIPAL -->
-	</div>
-	<!-- Inclui RODAPE.PHP  -->
-	<?php require 'geral/rodape.php';?>
-
 </body>
 </html>

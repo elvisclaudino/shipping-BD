@@ -21,10 +21,10 @@
 <?php require 'bd/conectaBD.php'; ?>
 
 <div class="w3-main w3-container" style="margin-top:5px;">
-    <div class="w3-panel w3-padding-large w3-card-4 w3-light-grey">
+    <div class="w3-panel w3-padding-large w3-card-4 w3-pale-yellow">
         <p class="w3-large">
         <p>
-        <div class="w3-code cssHigh notranslate">
+        <div class="w3-code cssHigh notranslate w3-yellow">
             <div class="w3-container w3-theme">
 			<h2>Cargas</h2>
 			</div>
@@ -54,17 +54,17 @@
                         INNER JOIN Tipo_Carga ON Tipo_Carga.Tipo_Carga_ID = Cargas.Fk_Tipo_ID";
                 echo "<div class='w3-responsive w3-card-4'>";
                 if ($result = mysqli_query($conn, $sql)) {
-                    echo "<table class='w3-table-all'>";
-                    echo "	<tr>";
-                    echo "	  <th width='7%'>Localizador</th>";
-                    echo "	  <th width='15%'>Peso</th>";
-                    echo "	  <th width='14%'>Volume</th>";
-                    echo "	  <th width='14%'>Descricao</th>";
+                    echo "<table class='w3-table-all w3-black'>";
+                    echo "	<tr class='w3-black'>";
+                    echo "	  <th width='25%'>Localizador</th>";
+                    echo "	  <th width='25%'>Peso</th>";
+                    echo "	  <th width='25%'>Volume</th>";
+                    echo "	  <th width='25%'>Descricao</th>";
                     echo "	</tr>";
                     if (mysqli_num_rows($result) > 0) {
                         // Apresenta cada linha da tabela
                         while ($row = mysqli_fetch_assoc($result)) {
-                            echo "<tr>";
+                            echo "<tr class='w3-sand'>";
                             echo "<td>";
                             echo $row['Carga_ID'];
                             echo "</td><td>";
