@@ -74,7 +74,7 @@
                             echo "</td><td>";
                             echo $row['Capacidade_Volume'];
                             echo "</td><td>";  
-                            //Atualizar e Excluir registro de médicos
+                            //Atualizar e Excluir registro de Funcionários
             ?>              <td>       
                             <a href='medAtualizar.php?id=<?php echo $cod; ?>'><img src='imagens/Edit.png' title='Editar Funcionário' width='32'></a>
                             </td><td>

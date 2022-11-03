@@ -57,6 +57,14 @@
 		// Faz DELETE na Base de Dados
 		$sql = "DELETE FROM Funcionarios WHERE Matricula = $id";
 
+		$optionsEntregas = array();
+		// CASO O ARRAY ESTEJA VAZIO DELETA FUNCIONARIO
+		if ($result = mysqli_query($conn, $sqlG)) {
+			while ($row = mysqli_fetch_assoc($result)) {
+				array_push($optionsEntregas, $row["Entrega_ID"]);
+			}
+		}
+
 		echo "<div class='w3-responsive w3-card-4'>";
 		if ($result = mysqli_query($conn, $sql)) {
 			echo "<p>&nbsp;Registro excluído com sucesso! </p>";

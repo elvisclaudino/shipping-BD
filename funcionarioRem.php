@@ -80,7 +80,8 @@
 						<br>
 					<?php }
 				}else {
-					echo "<p style='text-align:center'>Erro executando DELETE: " . mysqli_error($conn) . "</p>";
+					
+					echo "<p style='text-align:center'>O funcionário está atrelado a uma entrega ". "</p>";
 				}
 				echo "</div>"; //Fim form
 				mysqli_close($conn);  //Encerra conexao com o BD

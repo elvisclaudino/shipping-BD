@@ -52,7 +52,7 @@
 		if ($result = mysqli_query($conn, $sql)) {
 			echo "<p>&nbsp;Registro excluído com sucesso! </p>";
 		} else {
-			echo "<p>&nbsp;Erro executando DELETE: " . mysqli_error($conn . "</p>");
+			echo "<p>&nbsp;Funcionário atrelado a uma entrega"."</p>"; // Precisa retirar o mysqlierror
 		}
         echo "</div>";
 		mysqli_close($conn);  //Encerra conexao com o BD
