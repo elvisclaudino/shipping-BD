@@ -16,18 +16,16 @@
 	  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	  <link rel="stylesheet" href="css/customize.css">
 	</head>
-<body onload="w3_show_nav('menuMedico')">
+<body onload="w3_show_nav('menuMedico')" class="background">
 <!-- Inclui MENU.PHP  -->
 <?php require 'geral/menu.php';?>
 <?php require 'bd/conectaBD.php'; ?>
 
 <!-- Conteúdo Principal: deslocado para direita em 270 pixels quando a sidebar é visível -->
 <div class="w3-main w3-container">
-
-<div class="w3-panel w3-padding-large w3-card-4 w3-pale-yellow">
-  <p class="w3-large">
-  <div class="w3-code cssHigh notranslate w3-yellow">
-	<div class="w3-container w3-theme">
+<div>
+  <div class="w3-code cssHigh notranslate w3-green w3-round-large w3-center">
+	<div>
 	<h2>Exclusão de Funcionario</h2>
 	</div>
 
@@ -48,7 +46,7 @@
 		// Faz DELETE na Base de Dados
 		$sql = "DELETE FROM Funcionarios WHERE Matricula = $id";
 
-		echo "<div class='w3-responsive w3-card-4'>";
+		echo "<div>";
 		if ($result = mysqli_query($conn, $sql)) {
 			echo "<p>&nbsp;Registro excluído com sucesso! </p>";
 		} else {

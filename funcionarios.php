@@ -22,8 +22,8 @@
 
 <!-- Conteúdo Principal: deslocado para direita em 270 pixels quando a sidebar é visível -->
 <div class="w3-main w3-container" style="margin-top:5px;">
-    <div class="w3-panel w3-padding-large w3-card-4 w3-pale-yellow">
-        <div class="w3-code cssHigh notranslate w3-yellow">
+    <div>
+        <div class="w3-code cssHigh notranslate w3-yellow w3-round-large">
             <div class="w3-container w3-theme">
 			<h2>Funcionarios</h2>
 			</div>
@@ -56,7 +56,7 @@
                         FROM Funcionarios
                         INNER JOIN Cargos ON Cargos.Cargo_ID = Funcionarios.Fk_Cargo_ID 
                         ORDER BY Nome";
-                echo "<div class='w3-responsive w3-card-4'>";
+                echo "<div class='w3-responsive w3-card-4 w3-round-large'>";
                 if ($result = mysqli_query($conn, $sql)) {
                     echo "<table class='w3-table-all w3-black'>";
                     echo "	<tr class='w3-black'>";
