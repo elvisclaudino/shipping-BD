@@ -25,11 +25,9 @@
 
 <!-- Conteúdo Principal: deslocado paa direita em 270 pixels quando a sidebar é visível -->
 <div class="w3-main w3-container" style="margin-top:5px;">
+    <div>
+      <div class="w3-code cssHigh notranslate w3-yellow w3-round-large">
 
-    <div class="w3-panel w3-padding-large w3-card-4 w3-pale-yellow">
-        <!-- h1 class="w3-xxlarge">Contratação de Médico</h1 -->
-        <p class="w3-large">
-            <div class="w3-code cssHigh notranslate w3-yellow">
 				<!-- Acesso ao BD-->
 				<?php
 				
@@ -59,8 +57,8 @@
 
 				?>
 
-				<div class="w3-theme">
-						<h2>Informe os dados do novo do Funcionario</h2>
+				<div>
+					<h2>Informe os dados do novo funcionário</h2>
 				</div>
 				<form action="funcionarioAdd_exe.php" method="post" enctype="multipart/form-data">
 					<table class='w3-table-all'>
@@ -68,14 +66,14 @@
             <td class="w3-sand" style="width:50%;">
 						<p>
 						<label class="w3-text-IE"><b>Nome</b>*</label>
-						<input class="w3-input w3-border w3-light-grey"  name="Nome" type="text" placeholder="Elvis" required></p>
+						<input class="w3-input w3-border w3-light-grey w3-round-large"  name="Nome" type="text" placeholder="Elvis" required></p>
 						<p>
 						<label class="w3-text-IE"><b>Sobrenome</b>*</label>
-						<input class="w3-input w3-border w3-light-grey " name="Sobrenome"  type="text" maxlength="15"placeholder="Claudino" required></p>
+						<input class="w3-input w3-border w3-light-grey w3-round-large" name="Sobrenome"  type="text" maxlength="15" placeholder="Claudino" required></p>
 
 						<p>
 						<p><label class="w3-text-IE"><b>Cargo</b>*</label>
-								<select name="Cargo" id="Cargo"  class="w3-input w3-border w3-light-grey" required>
+								<select name="Cargo" id="Cargo" class="w3-input w3-border w3-light-grey w3-round-large" required>
 									<option value=""></option>
 								<?php
 									foreach($optionsCargo as $key => $value){
@@ -89,8 +87,8 @@
 					<tr class="w3-black">
 						<td colspan="2" style="text-align:center">
 						<p>
-						<input type="submit" value="Salvar" class="w3-button w3-round-large w3-medium w3-yellow w3-hover-white w3-monospace" >
-						<input type="button" value="Cancelar" class="w3-button w3-round-large w3-medium w3-yellow w3-hover-white w3-monospace" onclick="window.location.href='medListar.php'">
+						<input type="submit" value="Salvar" class="w3-button w3-round-large w3-medium w3-green w3-hover-yellow w3-monospace" >
+						<input type="button" value="Cancelar" class="w3-button w3-round-large w3-medium w3-red w3-hover-yellow w3-monospace" onclick="window.location.href='medListar.php'">
 						</p>
 						</td>
 					</tr>

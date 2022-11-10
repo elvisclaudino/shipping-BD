@@ -21,10 +21,8 @@
 <?php require 'bd/conectaBD.php'; ?>
 <!-- Conteúdo Principal: deslocado para direita em 270 pixels quando a sidebar é visível -->
 <div class="w3-main w3-container" style="margin-top:5px;">
-
-<div class="w3-panel w3-padding-large w3-card-4 w3-pale-yellow">
-  <p class="w3-large">
-  <div class="w3-code cssHigh notranslate w3-yellow">
+<div>
+  <div class="w3-code cssHigh notranslate w3-green w3-round-large">
 
 	<!-- Acesso ao BD-->
 	<?php
@@ -69,14 +67,14 @@
 		$sql = "INSERT INTO Funcionarios (Matricula, Nome, Sobrenome, Fk_Cargo_ID) VALUES ('$optionsId','$nome','$sobrenome','$optionsCargo[0]')";
 
 		?>
-		<div class='w3-responsive w3-card-4'>
-		<div class="w3-container w3-theme">
-		<h2>Inclusão de Novo Funcionario</h2>
+		<div class="w3-center">
+		<div>
+		<h2>Inclusão de novo funcionário</h2>
 		</div>
 		<?php
-		echo "<div class='w3-responsive w3-card-4'>";
+		echo "<div>";
 		if ($result = mysqli_query($conn, $sql)) {
-			echo "<p>&nbsp;Registro cadastrado com sucesso! </p>";
+			echo "<p>Registro cadastrado com sucesso! </p>";
 		} else {
 			echo "<p>&nbsp;Erro executando INSERT: " . mysqli_error($conn . "</p>");
 		}
@@ -85,5 +83,12 @@
 	?>
   </div>
 </div>
+<footer class="w3-center">
+	<p>
+		<nav>
+			<a class="w3-button w3-round-large w3-medium w3-yellow w3-hover-white w3-monospace" href="funcionarios.php">Ir para Funcionários</a>
+		</nav>
+	</p>
+</footer>
 </body>
 </html>
