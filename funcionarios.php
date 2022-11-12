@@ -80,7 +80,7 @@
                             echo "</td><td>";  
                             //Atualizar e Excluir registro de médicos
             ?>              <td>       
-                            <a href='medAtualizar.php?id=<?php echo $row['Matricula']; ?>'><img src='imagens/Edit.png' title='Editar Funcionário' width='32'></a>
+                            <a href='funcionarioAtt.php?id=<?php echo $row['Matricula']; ?>'><img src='imagens/Edit.png' title='Editar Funcionário' width='32'></a>
                             </td><td>
                             <a href='funcionarioRem.php?id=<?php echo $row['Matricula']; ?>'><img src='imagens/Delete.png' title='Remover Funcionário' width='32'></a>
                             </td>

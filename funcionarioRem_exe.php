@@ -43,18 +43,32 @@
 			die("Connection failed: " . mysqli_connect_error());
 		}
 
-		// Faz DELETE na Base de Dados
-		$sql = "DELETE FROM Funcionarios WHERE Matricula = $id";
+		$sql = "SELECT Matricula
+		FROM funcionarios, entregas
+		WHERE funcionarios.Matricula = entregas.Fk_Funcionario_ID AND
+				funcionarios.Matricula = $id	
+		";
 
 		echo "<div>";
 		if ($result = mysqli_query($conn, $sql)) {
-			echo "<p>&nbsp;Registro excluído com sucesso! </p>";
-		} else {
-			echo "<p>&nbsp;Funcionário atrelado a uma entrega"."</p>"; // Precisa retirar o mysqlierror
-		}
-        echo "</div>";
-		mysqli_close($conn);  //Encerra conexao com o BD
+			$row = mysqli_fetch_assoc($result);
 
+			if ($row['Matricula']== $id) {
+				echo "<p>&nbsp;Funcionário atrelado a uma entrega"."</p>"; // Precisa retirar o mysqlierror
+			}else{
+				// Faz DELETE na Base de Dados
+				$sql = "DELETE FROM Funcionarios WHERE Matricula = $id";
+
+				echo "<div>";
+				if ($result = mysqli_query($conn, $sql)) {
+					echo "<p>&nbsp;Registro excluído com sucesso! </p>";
+				} else {
+					echo "<p>&nbsp;Funcionário atrelado a uma entrega"."</p>"; // Precisa retirar o mysqlierror
+				}
+						echo "</div>";
+			}
+		} 
+		mysqli_close($conn);  //Encerra conexao com o BD
 		?>
   </div>
 	</div>
