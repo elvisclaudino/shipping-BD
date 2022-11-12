@@ -24,7 +24,7 @@
 <!-- Conteúdo Principal: deslocado para direita em 270 pixels quando a sidebar é visível -->
 <div class="w3-main w3-container">
 <div>
-  <div class="w3-code cssHigh notranslate w3-green w3-round-large w3-center">
+  <div class="w3-code cssHigh notranslate w3-yellow w3-round-large w3-center">
 	<div>
 	<h2>Exclusão de Funcionário</h2>
 	</div>
